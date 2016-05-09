@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+    <title>Use case diagram</title>
+
+    <script type="text/javascript" src="../resources/vis.min.js"></script>
+    <link href="../resources/vis.min.css" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        #usecase {
+            width: 100%;
+            height: 580px;
+            border: 1px solid lightgray;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var nodes = null;
+        var edges = null;
+        var network = null;
+		function draw() {
+			nodes = [
+				{id: 'Student', label: 'Student', group:'actors'},
+				{id: 'Secretariat', label: 'Secretariat', group:'actors'},
+				{id: 'Actualizare note', label: 'Actualizare note', group:'actions', title: 'Secretariatul actualizeaza notele studentilor'},
+				{id: 'Vizualizare note', label: 'Vizualizare note', group:'actions', title: 'Studentul vizualizeaza notele'},
+				{id: 'Logare', label: 'Logare', group:'actions', title: 'Vizitatorul incearca sa se logheze'}
+			];
+
+			edges = [
+				{from: 'Secretariat', to: 'Logare', color: 'blue'},
+				{from: 'Student', to: 'Logare', color: 'blue'},
+				{from: 'Student', to: 'Vizualizare note', color: 'blue'},
+				{from: 'Secretariat', to: 'Actualizare note', color: 'blue'},
+				{from: 'Vizualizare note', to: 'Logare', color: 'blue', label: '<<include>>', dashes: true, arrows: {to: true}},
+				{from: 'Actualizare note', to: 'Logare', color: 'blue', label: '<<include>>', dashes: true, arrows: {to: true}}
+			];
+
+            var options = {
+                groups: {
+                    actors: {
+                        shape: 'icon',
+                        icon: {face: 'Ionicons', code: '\uc6c3', color: 'black', size: 60},
+                    },
+                    actions: {
+                    borderWidth: 2,
+                    borderWidthSelected: 3
+                    }
+                },
+                nodes: {
+                    font: {face: 'Times New Roman', size: 20},
+                    color: {
+                        background: 'white',
+                        border: 'black',
+                        highlight: {
+                            border: 'black',
+                            background: 'white'
+                        },
+                        hover: {
+                            border: 'black',
+                            background: 'white'
+                        }
+                    }
+                },
+                edges: {
+                    width: 3,
+                    selectionWidth: 0,
+                    labelHighlightBold: false,
+                    smooth: false,
+                    color: {inherit: false},
+                    arrowStrikethrough: false,
+                    arrows: {
+                        to: {enabled: false, scaleFactor: 1},
+                        from: {enabled: false, scaleFactor: 1}
+                    },
+                    font: {size: 20},
+                    length: 400
+                },
+                physics: {
+                    enabled: true
+                }
+            };
+
+            var container = document.getElementById('usecase');
+            var data = {
+                nodes: nodes,
+                edges: edges
+            };
+            network = new vis.Network(container, data, options);
+		}
+	</script>
+</head>
+<body onload="draw()">
+    <div id="usecase"></div>
+</body>
+</html>

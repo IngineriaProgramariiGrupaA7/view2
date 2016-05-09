@@ -1,0 +1,54 @@
+<diagrama>
+    <usecase>
+        <actor>
+            <nume>Student</nume>
+        </actor>
+        <actor>
+            <nume>Secretariat</nume>
+        </actor>
+
+        <actiune>
+            <nume>Actualizare note</nume>
+            <descriere>Secretariatul actualizeaza notele studentilor</descriere>
+        </actiune>
+        <actiune>
+            <nume>Vizualizare note</nume>
+            <descriere>Studentul vizualizeaza notele</descriere>
+        </actiune>
+        <actiune>
+            <nume>Logare</nume>
+            <descriere>Vizitatorul incearca sa se logheze</descriere>
+        </actiune>
+
+        <relatie tip="asociere">
+            <sursa>Secretariat</sursa>
+            <destinatie>Logare</destinatie>
+        </relatie>
+
+        <relatie tip="asociere">
+            <sursa>Student</sursa>
+            <destinatie>Logare</destinatie>
+        </relatie>
+
+        <relatie tip="asociere">
+            <sursa>Student</sursa>
+            <destinatie>Vizualizare note</destinatie>
+        </relatie>
+
+        <relatie tip="asociere">
+            <sursa>Secretariat</sursa>
+            <destinatie>Actualizare note</destinatie>
+        </relatie>
+
+        <relatie tip="include">
+            <sursa>Vizualizare note</sursa>
+            <destinatie>Logare</destinatie>
+        </relatie>
+
+        <relatie tip="include">
+            <sursa>Actualizare note</sursa>
+            <destinatie>Logare</destinatie>
+        </relatie>
+
+    </usecase>
+</diagrama>
