@@ -1,9 +1,6 @@
 package com.ip.view2.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 
 public class Actor extends Component {
@@ -19,7 +16,7 @@ public class Actor extends Component {
         return id;
     }
 
-    @XmlElement(name="nume")
+    @XmlElement(name="name")
     public void setId(String id) {
         this.id = id;
     }

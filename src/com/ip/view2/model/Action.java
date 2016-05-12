@@ -1,9 +1,6 @@
 package com.ip.view2.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 
 public class Action extends Component {
@@ -21,7 +18,7 @@ public class Action extends Component {
         return description;
     }
 
-    @XmlElement(name="descriere")
+    @XmlElement(name="description")
     public void setDescription(String description) {
         this.description = description;
     }
@@ -30,7 +27,7 @@ public class Action extends Component {
         return id;
     }
 
-    @XmlElement(name="nume")
+    @XmlElement(name="name")
     public void setId(String id) {
         this.id = id;
     }

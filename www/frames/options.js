@@ -25,7 +25,7 @@
                     }
                 },
                 edges: {
-                    width: 3,
+                    width: 2,
                     selectionWidth: 0,
                     labelHighlightBold: false,
                     smooth: false,
@@ -36,9 +36,28 @@
                         from: {enabled: false, scaleFactor: 1}
                     },
                     font: {size: 20},
-                    length: 600
+                    length: 300
+                },
+                interaction:{
+                    multiselect: true,
+                    navigationButtons: true,
+                    selectConnectedEdges: false,
+                    tooltipDelay: 1000,
+                    hover: true
                 },
                 physics: {
-                    enabled: false
+                    enabled: true,
+                    barnesHut: {
+                        avoidOverlap: 1,
+                        gravitationalConstant: -100
+                    }
+                },
+                configure: {
+                    filter:function (option, path) {
+                        if (path.indexOf('physics') !== -1) {
+                            return true;
+                        }
+                        return false;
+                    }
                 }
             };

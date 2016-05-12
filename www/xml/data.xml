@@ -1,54 +1,91 @@
-<diagrama>
+<diagram>
     <usecase>
         <actor>
-            <nume>Student</nume>
+            <name>Antrenor</name>
         </actor>
-        <actor>
-            <nume>Secretariat</nume>
-        </actor>
+		<actor>
+			<name>Organizator concurs</name>
+		</actor>
+        <action>
+            <name>Inscriere jucatori</name>
+            <description>Antrenorul inscrie jucatorii la competitie</description>
+        </action>
+		<action>
+			<name>Actualizare lista jucatori</name>
+			<description> Organizatorul actualizeaza lista de jucatori inscrisi</description>
+		</action>
+        <action>
+            <name>Vizualizare jucatori</name>
+            <description>Antrenorul poate vizulaliza lista jucatorilor inscrisi la concurs</description>
+        </action>
 
-        <actiune>
-            <nume>Actualizare note</nume>
-            <descriere>Secretariatul actualizeaza notele studentilor</descriere>
-        </actiune>
-        <actiune>
-            <nume>Vizualizare note</nume>
-            <descriere>Studentul vizualizeaza notele</descriere>
-        </actiune>
-        <actiune>
-            <nume>Logare</nume>
-            <descriere>Vizitatorul incearca sa se logheze</descriere>
-        </actiune>
+        <action>
+            <name>Logare cont</name>
+            <description>Antrenorul  se logheaza </description>
+        </action>
+		<action>
+			<name>Download clasament</name>
+			<description>Antrenorul salva clasamentul </description>
+		</action>
+		<action>
+			<name>creare clasament</name>
+			<description>Organizatorul concursului creeaza clasamentul </description>
+		</action>
+		
+	<action>
+	    <name>Vizualizare clasament</name>
+	    <description> Antrenorul poate vizualiza clasamentul final al competitiei</description>
+	</action>
+		<relationship type="association">
+			<from>Organizator concurs</from>
+            <to>Actualizare lista jucatori</to>
+        </relationship>
+		
+		<relationship type="uniassociation">
+			<from>Organizator concurs</from>
+            <to>Logare cont</to>
+        </relationship>
+		
+		<relationship type="association">
+			<from>Organizator concurs</from>
+            <to>creare clasament</to>
+        </relationship>
+		
+		<relationship type="association">
+			<from>creare clasament</from>
+            <to>Vizualizare clasament</to>
+        </relationship>
+		
+        <relationship type="uniassociation">
+            <from>Antrenor</from>
+            <to>Logare cont</to>
+        </relationship>
 
-        <relatie tip="asociere">
-            <sursa>Secretariat</sursa>
-            <destinatie>Logare</destinatie>
-        </relatie>
+        <relationship type="uniassociation">
+            <from>Antrenor</from>
+            <to>Inscriere jucatori</to>
+        </relationship>
 
-        <relatie tip="asociere">
-            <sursa>Student</sursa>
-            <destinatie>Logare</destinatie>
-        </relatie>
+		 <relationship type="extend">
+            <from>Vizualizare jucatori</from>
+            <to>Inscriere jucatori</to>
+        </relationship>
 
-        <relatie tip="asociere">
-            <sursa>Student</sursa>
-            <destinatie>Vizualizare note</destinatie>
-        </relatie>
+        <relationship type="association">
+            <from>Antrenor</from>
+            <to>Vizualizare clasament </to>
+        </relationship>
 
-        <relatie tip="asociere">
-            <sursa>Secretariat</sursa>
-            <destinatie>Actualizare note</destinatie>
-        </relatie>
+       
+        <relationship type="extend">
+            <from>Download clasament</from>
+            <to>Vizualizare clasament</to>
+        </relationship>
 
-        <relatie tip="include">
-            <sursa>Vizualizare note</sursa>
-            <destinatie>Logare</destinatie>
-        </relatie>
-
-        <relatie tip="include">
-            <sursa>Actualizare note</sursa>
-            <destinatie>Logare</destinatie>
-        </relatie>
-
+        <relationship type="include">
+            <from>Vizualizare clasament</from>
+            <to>Logare cont</to>
+        </relationship>
     </usecase>
-</diagrama>
+
+</diagram>

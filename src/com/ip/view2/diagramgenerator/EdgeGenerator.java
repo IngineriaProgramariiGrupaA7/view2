@@ -7,19 +7,19 @@ public class EdgeGenerator {
     public String generateEdge(Relation relation, String color) {
         String edge = "{from: '" + relation.getSource() + "', to: '" + relation.getDestination() + "', color: '" + color + "'";
         switch (relation.getType()) {
-            case "asociere":
+            case "association":
                 edge += getAssociationOptions();
                 break;
-            case "uniasociere":
+            case "uniassociation":
                 edge += getUniAssociationOptions();
                 break;
-            case "mostenire":
+            case "generalization":
                 edge += getInheritenceOptions();
                 break;
             case "include":
                 edge += getInclusionOptions();
                 break;
-            case "extinde":
+            case "extend":
                 edge += getExtensionOptions();
                 break;
         }
@@ -47,7 +47,7 @@ public class EdgeGenerator {
     }
 
     private String getExtensionOptions() {
-        String options = "label: '<<extend>>', dashes: true, arrows: {from: true}}";
+        String options = ", label: '<<extend>>', dashes: true, arrows: {to: true}}";
         return options;
     }
 }

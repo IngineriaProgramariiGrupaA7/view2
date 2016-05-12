@@ -1,8 +1,5 @@
 package com.ip.view2.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
-
 public abstract class Component {
     protected String id;
     protected String group;

@@ -13,14 +13,14 @@ public class Usecase {
 
     @XmlElement(name="actor")
     private List<Actor> actors;
-    @XmlElement(name="actiune")
+    @XmlElement(name="action")
     private List<Action> actions;
-    @XmlElement(name="relatie")
+    @XmlElement(name="relationship")
     private List<Relation> edges;
     private String color;
 
     public Usecase() {
-        this.color = "blue";
+        this.color = Diagram.getRandomColor();
     }
 
     public Usecase(String color) {

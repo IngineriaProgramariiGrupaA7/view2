@@ -22,7 +22,7 @@ public class Relation {
         return source;
     }
 
-    @XmlElement(name="sursa")
+    @XmlElement(name="from")
     public void setSource(String source) {
         this.source = source;
     }
@@ -31,7 +31,7 @@ public class Relation {
         return destination;
     }
 
-    @XmlElement(name="destinatie")
+    @XmlElement(name="to")
     public void setDestination(String destination) {
         this.destination = destination;
     }
@@ -40,7 +40,7 @@ public class Relation {
         return type;
     }
 
-    @XmlAttribute(name="tip")
+    @XmlAttribute(name="type")
     public void setType(String type) {
         this.type = type;
     }
