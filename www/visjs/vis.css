@@ -2353,7 +2353,7 @@ ul#nav li.current a:after {
 /* more2 link */
 #hero #more2 {
   position: absolute;
-  left: 15%;
+  left: 10%;
   bottom: -28px;
   margin-left: 240px;
 }
@@ -2400,7 +2400,7 @@ ul#nav li.current a:after {
 /* more3 link */
 #more3 {
   position: absolute;
-  left: 0%;
+  left: 20%;
   bottom: -55px;
   margin-left: 240px;
 }

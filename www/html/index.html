@@ -14,7 +14,7 @@
      ================================================== -->
     <link rel="shortcut icon" href="..\visjs\img\network\favicon.png" >
 
-    <title>Use case diagraaaam</title>
+    <title>Use case diagram</title>
 
     <script type="text/javascript" src="../visjs/vis.js"></script>
     <link href="../visjs/vis.css" rel="stylesheet" type="text/css"/>
@@ -22,12 +22,19 @@
     <style type="text/css">
         #usecase {
             width: 100%;
-            height: 600px;
+            height: 700px;
             border: 1px solid lightgray;
         }
     </style>
 
     <script type="text/javascript">
+        function saveAs(){var canvas=document.getElementById('canv');
+            var img = canvas.toDataURL("image/png");
+            var a=document.createElement('a');
+            a.href = img;
+            a.download = "UseCaseDiagram.png";
+            a.click();
+        }
         function removePhysicsPanel() {
             document.getElementsByClassName("vis-configuration-wrapper")[0].remove();
         }
@@ -38,30 +45,31 @@
         var network = null;
 		function draw() {
 			nodes = [
-				{id: 'Organizator concurs', label: 'Organizator concurs', group:'actors'},
 				{id: 'Antrenor', label: 'Antrenor', group:'actors'},
-				{id: 'Download clasament', label: 'Download clasament', group:'actions', title: 'Antrenorul salva clasamentul '},
-				{id: 'Actualizare lista jucatori', label: 'Actualizare lista jucatori', group:'actions', title: ' Organizatorul actualizeaza lista de jucatori inscrisi'},
-				{id: 'Vizualizare jucatori', label: 'Vizualizare jucatori', group:'actions', title: 'Antrenorul poate vizulaliza lista jucatorilor inscrisi la concurs'},
+				{id: 'Organizator concurs', label: 'Organizator concurs', group:'actors'},
 				{id: 'Vizualizare clasament', label: 'Vizualizare clasament', group:'actions', title: ' Antrenorul poate vizualiza clasamentul final al competitiei'},
-				{id: 'Inscriere jucatori', label: 'Inscriere jucatori', group:'actions', title: 'Antrenorul inscrie jucatorii la competitie'},
 				{id: 'creare clasament', label: 'creare clasament', group:'actions', title: 'Organizatorul concursului creeaza clasamentul '},
-				{id: 'Logare cont', label: 'Logare cont', group:'actions', title: 'Antrenorul  se logheaza '}
+				{id: 'Vizualizare jucatori', label: 'Vizualizare jucatori', group:'actions', title: 'Antrenorul poate vizulaliza lista jucatorilor inscrisi la concurs'},
+				{id: 'Download clasament', label: 'Download clasament', group:'actions', title: 'Antrenorul salva clasamentul '},
+				{id: 'Logare cont', label: 'Logare cont', group:'actions', title: 'Antrenorul  se logheaza '},
+				{id: 'Inscriere jucatori', label: 'Inscriere jucatori', group:'actions', title: 'Antrenorul inscrie jucatorii la competitie'},
+				{id: 'Actualizare lista jucatori', label: 'Actualizare lista jucatori', group:'actions', title: ' Organizatorul actualizeaza lista de jucatori inscrisi'}
 			];
 
 			edges = [
-				{from: 'Organizator concurs', to: 'Actualizare lista jucatori', color: 'purple'},
-				{from: 'Organizator concurs', to: 'Logare cont', color: 'purple', arrows: {to: true}},
-				{from: 'Organizator concurs', to: 'creare clasament', color: 'purple'},
-				{from: 'creare clasament', to: 'Vizualizare clasament', color: 'purple'},
-				{from: 'Antrenor', to: 'Logare cont', color: 'purple', arrows: {to: true}},
-				{from: 'Antrenor', to: 'Inscriere jucatori', color: 'purple', arrows: {to: true}},
-				{from: 'Vizualizare jucatori', to: 'Inscriere jucatori', color: 'purple', label: '<<extend>>', dashes: true, arrows: {to: true}},
-				{from: 'Antrenor', to: 'Vizualizare clasament ', color: 'purple'},
-				{from: 'Download clasament', to: 'Vizualizare clasament', color: 'purple', label: '<<extend>>', dashes: true, arrows: {to: true}},
-				{from: 'Vizualizare clasament', to: 'Logare cont', color: 'purple', label: '<<include>>', dashes: true, arrows: {to: true}}
+				{from: 'Organizator concurs', to: 'Actualizare lista jucatori', color: 'magenta'},
+				{from: 'Organizator concurs', to: 'Logare cont', color: 'magenta', arrows: {to: true}},
+				{from: 'Organizator concurs', to: 'creare clasament', color: 'magenta'},
+				{from: 'creare clasament', to: 'Vizualizare clasament', color: 'magenta'},
+				{from: 'Antrenor', to: 'Logare cont', color: 'magenta', arrows: {to: true}},
+				{from: 'Antrenor', to: 'Inscriere jucatori', color: 'magenta', arrows: {to: true}},
+				{from: 'Vizualizare jucatori', to: 'Inscriere jucatori', color: 'magenta', label: '<<extend>>', dashes: true, arrows: {to: true}},
+				{from: 'Antrenor', to: 'Vizualizare clasament ', color: 'magenta'},
+				{from: 'Download clasament', to: 'Vizualizare clasament', color: 'magenta', label: '<<extend>>', dashes: true, arrows: {to: true}},
+				{from: 'Vizualizare clasament', to: 'Logare cont', color: 'magenta', label: '<<include>>', dashes: true, arrows: {to: true}}
 			];
 
+            var valoare = -500;
             var options = {
                 groups: {
                     actors: {
@@ -109,11 +117,17 @@
                     tooltipDelay: 1000,
                     hover: true
                 },
+                manipulation:{
+                    enabled: true,
+                    editNode: function() {
+                        alert("Introdu numele nodului");
+                    }
+                },
                 physics: {
                     enabled: true,
                     barnesHut: {
                         avoidOverlap: 1,
-                        gravitationalConstant: -100
+                        gravitationalConstant: valoare
                     }
                 },
                 configure: {

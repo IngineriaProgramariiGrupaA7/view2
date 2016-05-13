@@ -1,3 +1,4 @@
+            var valoare = -500;
             var options = {
                 groups: {
                     actors: {
@@ -45,11 +46,17 @@
                     tooltipDelay: 1000,
                     hover: true
                 },
+                manipulation:{
+                    enabled: true,
+                    editNode: function() {
+                        alert("Introdu numele nodului");
+                    }
+                },
                 physics: {
                     enabled: true,
                     barnesHut: {
                         avoidOverlap: 1,
-                        gravitationalConstant: -100
+                        gravitationalConstant: valoare
                     }
                 },
                 configure: {
