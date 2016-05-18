@@ -45,28 +45,28 @@
         var network = null;
 		function draw() {
 			nodes = [
-				{id: 'Antrenor', label: 'Antrenor', group:'actors'},
 				{id: 'Organizator concurs', label: 'Organizator concurs', group:'actors'},
-				{id: 'Vizualizare clasament', label: 'Vizualizare clasament', group:'actions', title: ' Antrenorul poate vizualiza clasamentul final al competitiei'},
-				{id: 'creare clasament', label: 'creare clasament', group:'actions', title: 'Organizatorul concursului creeaza clasamentul '},
-				{id: 'Vizualizare jucatori', label: 'Vizualizare jucatori', group:'actions', title: 'Antrenorul poate vizulaliza lista jucatorilor inscrisi la concurs'},
+				{id: 'Antrenor', label: 'Antrenor', group:'actors'},
 				{id: 'Download clasament', label: 'Download clasament', group:'actions', title: 'Antrenorul salva clasamentul '},
-				{id: 'Logare cont', label: 'Logare cont', group:'actions', title: 'Antrenorul  se logheaza '},
+				{id: 'Actualizare lista jucatori', label: 'Actualizare lista jucatori', group:'actions', title: ' Organizatorul actualizeaza lista de jucatori inscrisi'},
+				{id: 'Vizualizare jucatori', label: 'Vizualizare jucatori', group:'actions', title: 'Antrenorul poate vizulaliza lista jucatorilor inscrisi la concurs'},
+				{id: 'Vizualizare clasament', label: 'Vizualizare clasament', group:'actions', title: ' Antrenorul poate vizualiza clasamentul final al competitiei'},
 				{id: 'Inscriere jucatori', label: 'Inscriere jucatori', group:'actions', title: 'Antrenorul inscrie jucatorii la competitie'},
-				{id: 'Actualizare lista jucatori', label: 'Actualizare lista jucatori', group:'actions', title: ' Organizatorul actualizeaza lista de jucatori inscrisi'}
+				{id: 'creare clasament', label: 'creare clasament', group:'actions', title: 'Organizatorul concursului creeaza clasamentul '},
+				{id: 'Logare cont', label: 'Logare cont', group:'actions', title: 'Antrenorul  se logheaza '}
 			];
 
 			edges = [
-				{from: 'Organizator concurs', to: 'Actualizare lista jucatori', color: 'green'},
-				{from: 'Organizator concurs', to: 'Logare cont', color: 'green', arrows: {to: true}},
-				{from: 'Organizator concurs', to: 'creare clasament', color: 'green'},
-				{from: 'creare clasament', to: 'Vizualizare clasament', color: 'green'},
-				{from: 'Antrenor', to: 'Logare cont', color: 'green', arrows: {to: true}},
-				{from: 'Antrenor', to: 'Inscriere jucatori', color: 'green', arrows: {to: true}},
-				{from: 'Vizualizare jucatori', to: 'Inscriere jucatori', color: 'green', label: '<<extend>>', dashes: true, arrows: {to: true}},
-				{from: 'Antrenor', to: 'Vizualizare clasament ', color: 'green'},
-				{from: 'Download clasament', to: 'Vizualizare clasament', color: 'green', label: '<<extend>>', dashes: true, arrows: {to: true}},
-				{from: 'Vizualizare clasament', to: 'Logare cont', color: 'green', label: '<<include>>', dashes: true, arrows: {to: true}}
+				{from: 'Organizator concurs', to: 'Actualizare lista jucatori', color: 'yellow'},
+				{from: 'Organizator concurs', to: 'Logare cont', color: 'yellow', arrows: {to: true}},
+				{from: 'Organizator concurs', to: 'creare clasament', color: 'yellow'},
+				{from: 'creare clasament', to: 'Vizualizare clasament', color: 'yellow'},
+				{from: 'Antrenor', to: 'Logare cont', color: 'yellow', arrows: {to: true}},
+				{from: 'Antrenor', to: 'Inscriere jucatori', color: 'yellow', arrows: {to: true}},
+				{from: 'Vizualizare jucatori', to: 'Inscriere jucatori', color: 'yellow', label: '<<extend>>', dashes: true, arrows: {to: true}},
+				{from: 'Antrenor', to: 'Vizualizare clasament ', color: 'yellow'},
+				{from: 'Download clasament', to: 'Vizualizare clasament', color: 'yellow', label: '<<extend>>', dashes: true, arrows: {to: true}},
+				{from: 'Vizualizare clasament', to: 'Logare cont', color: 'yellow', label: '<<include>>', dashes: true, arrows: {to: true}}
 			];
 
 var valoare=-2500;
