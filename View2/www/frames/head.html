@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IP Project</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- favicons
+     ================================================== -->
+    <link rel="shortcut icon" href="..\visjs\img\network\favicon.png" >
+
+    <title>Use case diagram</title>
+
+    <script type="text/javascript" src="../visjs/vis.js"></script>
+    <link href="../visjs/vis.css" rel="stylesheet" type="text/css"/>
+
+    <style type="text/css">
+        #usecase {
+            width: 100%;
+            height: 700px;
+            border: 1px solid lightgray;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function saveAs(){var canvas=document.getElementById('canv');
+            var img = canvas.toDataURL("image/png");
+            var a=document.createElement('a');
+            a.href = img;
+            a.download = "UseCaseDiagram.png";
+            a.click();
+        }
+        function removePhysicsPanel() {
+            document.getElementsByClassName("vis-configuration-wrapper")[0].remove();
+        }
+    </script>
+    <script type="text/javascript">
+        var nodes = null;
+        var edges = null;
+        var network = null;
