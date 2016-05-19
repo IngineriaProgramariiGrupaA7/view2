@@ -8,24 +8,39 @@ public abstract class Component {
 
     }
 
-    Component(String id, String group) {
+    /**
+     * Preia id-ul si categoria componentei.
+     */
+	Component(String id, String group) {
         this.id = id;
         this.group = group;
     }
 
-    public String getId() {
+    /**
+     * Returneaza id-ul componentei.
+     */
+	public String getId() {
         return id;
     }
 
-    public void setId(String id) {
+    /**
+     * Preia id-ul componentei.
+     */
+	public void setId(String id) {
         this.id = id;
     }
 
-    public String getGroup() {
+    /**
+     * Returneaza categoria componentei.
+     */
+	public String getGroup() {
         return group;
     }
 
-    public void setGroup(String group) {
+    /**
+     * Preia categoria componentei.
+     */
+	public void setGroup(String group) {
         this.group = group;
     }
 }

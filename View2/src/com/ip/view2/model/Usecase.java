@@ -19,55 +19,91 @@ public class Usecase {
     private List<Relation> edges;
     private String color;
 
-    public Usecase() {
+    /**
+     * Preia o culoare alesa random.
+     */
+	public Usecase() {
         this.color = Diagram.getRandomColor();
     }
 
-    public Usecase(String color) {
+    /**
+     * Creaza un actor, o actiune si o muchie pentru care va prelua informatiile ulterior.
+     */
+	public Usecase(String color) {
         actors = new ArrayList<>();
         actions = new ArrayList<>();
         edges = new ArrayList<>();
         this.color = color;
     }
 
-    public void addActor(Actor actor) {
+    /**
+     * Adauga un actor.
+     */
+	public void addActor(Actor actor) {
         actors.add(actor);
     }
 
-    public void addAction(Action action) {
+    /**
+     * Adauga o actiune.
+     */
+	public void addAction(Action action) {
         actions.add(action);
     }
 
-    public List<Actor> getActors() {
+    /**
+     * Returneaza informatiile despre actor.
+     */
+	public List<Actor> getActors() {
         return actors;
     }
 
-    public List<Action> getActions() {
+    /**
+     * Returneaza informatiile despre actiune.
+     */
+	public List<Action> getActions() {
         return actions;
     }
 
-    public List<Relation> getEdges() {
+    /**
+     * Returneaza informatiile despre muchie.
+     */
+	public List<Relation> getEdges() {
         return edges;
     }
 
-    public String getColor() {
+    /**
+     * Returneaza culoarea.
+     */
+	public String getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    /**
+     * Preia culoarea.
+     */
+	public void setColor(String color) {
         this.color = color;
     }
 
-    public void setActors(List<Actor> actors) {
+    /**
+     * Preia toate informatiile despre actor.
+     */
+	public void setActors(List<Actor> actors) {
         this.actors = actors;
     }
 
 
-    public void setActions(List<Action> actions) {
+    /**
+     * Preia toate informatiile despre actiune.
+     */
+	public void setActions(List<Action> actions) {
         this.actions = actions;
     }
 
-    public void setEdges(List<Relation> edges) {
+    /**
+     * Preia toate informatiile despre muchie.
+     */
+	public void setEdges(List<Relation> edges) {
         this.edges = edges;
     }
 }

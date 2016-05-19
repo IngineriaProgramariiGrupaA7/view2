@@ -12,14 +12,25 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+
+// TODO: Auto-generated Javadoc
 /**
- * Created by Rares on 09.05.2016.
+ * The Class DiagramGenerator.
  */
 public class DiagramGenerator {
+    
+    /** Bufferul ce contine informatia din index.html */
     private BufferedWriter html;
+    
+    /** The diagram. */
     private Diagram diagram;
+    
+    /** The value of constant gravity. */
     private final int valueOfConstantGravity=-2500;
 
+    /**
+     * Se ataseaza tagul de head 
+     */
     private void attachHead() {
         String head = null;
         try {
@@ -31,6 +42,11 @@ public class DiagramGenerator {
         }
     }
 
+    /**
+     * Attach network.
+     *
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     private void attachNetwork() throws IOException {
         html.write("\t\tfunction draw() {");
         attachNodes();
@@ -39,6 +55,13 @@ public class DiagramGenerator {
         createNetwork();
     }
 
+    /**
+     * Verifica daca nu exista duplicate in lista de componente
+     *
+     * @param components the components
+     * @param id the id
+     * @return true, if successful
+     */
     private boolean notDuplicate(List<? extends Component> components, String id) {
         for(Component component : components) {
             if(component.getId().equals(id)) {
@@ -48,6 +71,13 @@ public class DiagramGenerator {
         return true;
     }
 
+    /**
+     * In cazul in care nu avem duplicate in cele doua liste se adauga in set id-ul componentei
+     *
+     * @param list1 the list1
+     * @param list2 the list2
+     * @return the list
+     */
     private List<Component> union(List<? extends Component> list1, List<? extends Component> list2) {
         Set<Component> set = new HashSet<Component>();
 
@@ -60,6 +90,12 @@ public class DiagramGenerator {
         return new ArrayList<>(set);
     }
 
+    /**
+     * Se preiau toti actorii din diagrama
+     *
+     * @param usecases the usecases
+     * @return the all actors from diagram
+     */
     private List<Component> getAllActorsFromDiagram(List<Usecase> usecases) {
         List<Component> actors = new ArrayList<>();
         for(Usecase usecase : usecases) {
@@ -69,6 +105,12 @@ public class DiagramGenerator {
         return actors;
     }
 
+    /**
+     *	Se preiau toate actiunile din diagrama
+     *
+     * @param usecases the usecases
+     * @return the all actions from diagram
+     */
     private List<Component> getAllActionsFromDiagram(List<Usecase> usecases) {
         List<Component> actions = new ArrayList<>();
         for(Usecase usecase : usecases) {
@@ -77,6 +119,12 @@ public class DiagramGenerator {
         }
         return actions;
     }
+    
+    /**
+     * Se ataseaza actorii si actiunile diagramei
+     *
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     private void attachNodes() throws IOException {
         StringBuilder nodes = new StringBuilder("\n\t\t\tnodes = [\n\t\t\t\t");
         NodeGenerator nodeGenerator = new NodeGenerator();
@@ -96,6 +144,11 @@ public class DiagramGenerator {
         html.write(String.valueOf(nodes));
     }
 
+    /**
+     * Se ataseaza muchiile diagramei
+     *
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     private void attachEdges() throws IOException {
         StringBuilder edges = new StringBuilder("\n\t\t\tedges = [\n\t\t\t\t");
         EdgeGenerator edgeGenerator = new EdgeGenerator();
@@ -118,6 +171,11 @@ public class DiagramGenerator {
         html.write(String.valueOf(edges));
     }
 
+    /**
+     * Se ataseaza optiunile  diagramei din fisierul  options.js
+     *
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     private void attachOptions() throws IOException {
         String options = null;
         try {
@@ -130,6 +188,11 @@ public class DiagramGenerator {
         }
     }
 
+    /**
+     * Initializarea retelei. Se citesc informatii din network.js , care vor fi introduse in pagina de index
+     *
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     private void createNetwork() throws IOException {
         String network = null;
         try {
@@ -142,6 +205,11 @@ public class DiagramGenerator {
         }
     }
 
+    /**
+     * Se realizeaza atasarea body-ului
+     *
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     private void attachBody() throws IOException {
         String body = null;
         try {
@@ -152,6 +220,14 @@ public class DiagramGenerator {
         }
     }
 
+    /**
+     * Genereaza diagrama prin parsearea xml-ului, dupa care se genereaza
+     *	continutului tagului head si body, impreuna cu optiunile lor specifice.
+     *
+     * @param xmlPath the xml path
+     * @param htmlPath the html path
+     * @throws IOException Signals that an I/O exception has occurred.
+     */
     public void generateDiagram(String xmlPath, String htmlPath) throws IOException {
         XMLReader xmlReader = new XMLReader();
         diagram = xmlReader.parseXMLFile(xmlPath);

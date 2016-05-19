@@ -20,7 +20,10 @@ public class Diagram {
     private static List<String> colors;
     private static Random random;
 
-    public Diagram() {
+    /**
+     * Creaza un usecases si o lista de culori. 
+     */
+	public Diagram() {
         usecases = new ArrayList<>();
         random = new Random();
         colors = new LinkedList<>();
@@ -35,15 +38,24 @@ public class Diagram {
         colors.add("magenta");
     }
 
-    public List<Usecase> getUsecases() {
+    /**
+     * Returneaza usecase-ul.
+     */
+	public List<Usecase> getUsecases() {
         return usecases;
     }
 
-    public void setUsecases(List<Usecase> usecases) {
+    /**
+     * Preia usecase-ul.
+     */
+	public void setUsecases(List<Usecase> usecases) {
         this.usecases = usecases;
     }
 
-    public static String getRandomColor() {
+    /**
+     * Preia o culoare random din lista.
+     */
+	public static String getRandomColor() {
         int index = random.nextInt(colors.size());
         String color = colors.get(index);
         colors.remove(index);

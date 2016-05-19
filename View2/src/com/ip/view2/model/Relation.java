@@ -12,36 +12,57 @@ public class Relation {
 
     }
 
-    public Relation(String source, String destination, String type) {
+    /**
+     * Preia sursa, destinatia muchiei si tipul relatiei.
+     */
+	public Relation(String source, String destination, String type) {
         this.source = source;
         this.destination = destination;
         this.type = type;
     }
 
-    public String getSource() {
+    /**
+     * Returneaza sursa muchiei.
+     */
+	public String getSource() {
         return source;
     }
 
     @XmlElement(name="from")
-    public void setSource(String source) {
+    /**
+     * Preia sursa muchiei.
+     */
+	public void setSource(String source) {
         this.source = source;
     }
 
-    public String getDestination() {
+    /**
+     * Returneaza destinatia muchiei.
+     */
+	public String getDestination() {
         return destination;
     }
 
     @XmlElement(name="to")
-    public void setDestination(String destination) {
+    /**
+     * Preia destinatia muchiei.
+     */
+	public void setDestination(String destination) {
         this.destination = destination;
     }
 
-    public String getType() {
+    /**
+     * Returneaza tipul relatiei. 
+     */
+	public String getType() {
         return type;
     }
 
     @XmlAttribute(name="type")
-    public void setType(String type) {
+    /**
+     * Preia tipul relatiei. ex: association,uniassociation etc
+     */
+	public void setType(String type) {
         this.type = type;
     }
 }
