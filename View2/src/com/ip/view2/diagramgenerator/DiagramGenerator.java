@@ -26,7 +26,7 @@ public class DiagramGenerator {
     private Diagram diagram;
     
     /** The value of constant gravity. */
-    private final int valueOfConstantGravity=-2500;
+    private final int valueOfConstantGravity=-5000;
 
     /**
      * Se ataseaza tagul de head 
@@ -181,7 +181,7 @@ public class DiagramGenerator {
         try {
             options = new String(Files.readAllBytes(Paths.get("www/frames/options.js")), StandardCharsets.UTF_8);
             int constantGravity=this.valueOfConstantGravity*diagram.getUsecases().size();
-            html.write("var valoare="+constantGravity+";\n");
+            html.write("\t\t\tvar gravityConstant="+constantGravity+";\n");
             html.write(options);
         } catch (IOException e) {
             e.printStackTrace();

@@ -49,7 +49,7 @@
                     enabled: true,
                     barnesHut: {
                         avoidOverlap: 1,
-                        gravitationalConstant: valoare
+                        gravitationalConstant: gravityConstant
                     }
                 },
                 configure: {

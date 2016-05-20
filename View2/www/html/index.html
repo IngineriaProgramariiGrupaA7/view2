@@ -48,28 +48,28 @@
 				{id: 'Organizator concurs', label: 'Organizator concurs', group:'actors'},
 				{id: 'Antrenor', label: 'Antrenor', group:'actors'},
 				{id: 'Download clasament', label: 'Download clasament', group:'actions', title: 'Antrenorul salva clasamentul '},
-				{id: 'Actualizare lista jucatori', label: 'Actualizare lista jucatori', group:'actions', title: ' Organizatorul actualizeaza lista de jucatori inscrisi'},
-				{id: 'Vizualizare jucatori', label: 'Vizualizare jucatori', group:'actions', title: 'Antrenorul poate vizulaliza lista jucatorilor inscrisi la concurs'},
-				{id: 'Vizualizare clasament', label: 'Vizualizare clasament', group:'actions', title: ' Antrenorul poate vizualiza clasamentul final al competitiei'},
 				{id: 'Inscriere jucatori', label: 'Inscriere jucatori', group:'actions', title: 'Antrenorul inscrie jucatorii la competitie'},
 				{id: 'creare clasament', label: 'creare clasament', group:'actions', title: 'Organizatorul concursului creeaza clasamentul '},
-				{id: 'Logare cont', label: 'Logare cont', group:'actions', title: 'Antrenorul  se logheaza '}
+				{id: 'Logare cont', label: 'Logare cont', group:'actions', title: 'Antrenorul  se logheaza '},
+				{id: 'Actualizare lista jucatori', label: 'Actualizare lista jucatori', group:'actions', title: ' Organizatorul actualizeaza lista de jucatori inscrisi'},
+				{id: 'Vizualizare clasament', label: 'Vizualizare clasament', group:'actions', title: ' Antrenorul poate vizualiza clasamentul final al competitiei'},
+				{id: 'Vizualizare jucatori', label: 'Vizualizare jucatori', group:'actions', title: 'Antrenorul poate vizulaliza lista jucatorilor inscrisi la concurs'}
 			];
 
 			edges = [
-				{from: 'Organizator concurs', to: 'Actualizare lista jucatori', color: 'purple'},
-				{from: 'Organizator concurs', to: 'Logare cont', color: 'purple', arrows: {to: true}},
-				{from: 'Organizator concurs', to: 'creare clasament', color: 'purple'},
-				{from: 'creare clasament', to: 'Vizualizare clasament', color: 'purple'},
-				{from: 'Antrenor', to: 'Logare cont', color: 'purple', arrows: {to: true}},
-				{from: 'Antrenor', to: 'Inscriere jucatori', color: 'purple', arrows: {to: true}},
-				{from: 'Vizualizare jucatori', to: 'Inscriere jucatori', color: 'purple', label: '<<extend>>', dashes: true, arrows: {to: true}},
-				{from: 'Antrenor', to: 'Vizualizare clasament ', color: 'purple'},
-				{from: 'Download clasament', to: 'Vizualizare clasament', color: 'purple', label: '<<extend>>', dashes: true, arrows: {to: true}},
-				{from: 'Vizualizare clasament', to: 'Logare cont', color: 'purple', label: '<<include>>', dashes: true, arrows: {to: true}}
+				{from: 'Organizator concurs', to: 'Actualizare lista jucatori', color: 'blue'},
+				{from: 'Organizator concurs', to: 'Logare cont', color: 'blue', arrows: {to: true}},
+				{from: 'Organizator concurs', to: 'creare clasament', color: 'blue'},
+				{from: 'creare clasament', to: 'Vizualizare clasament', color: 'blue'},
+				{from: 'Antrenor', to: 'Logare cont', color: 'blue', arrows: {to: true}},
+				{from: 'Antrenor', to: 'Inscriere jucatori', color: 'blue', arrows: {to: true}},
+				{from: 'Vizualizare jucatori', to: 'Inscriere jucatori', color: 'blue', label: '<<extend>>', dashes: true, arrows: {to: true}},
+				{from: 'Antrenor', to: 'Vizualizare clasament ', color: 'blue'},
+				{from: 'Download clasament', to: 'Vizualizare clasament', color: 'blue', label: '<<extend>>', dashes: true, arrows: {to: true}},
+				{from: 'Vizualizare clasament', to: 'Logare cont', color: 'blue', label: '<<include>>', dashes: true, arrows: {to: true}}
 			];
 
-var valoare=-2500;
+			var gravityConstant=-5000;
             var options = {
                 groups: {
                     actors: {
@@ -121,7 +121,7 @@ var valoare=-2500;
                     enabled: true,
                     barnesHut: {
                         avoidOverlap: 1,
-                        gravitationalConstant: valoare
+                        gravitationalConstant: gravityConstant
                     }
                 },
                 configure: {
