@@ -4,7 +4,6 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Main.
  */

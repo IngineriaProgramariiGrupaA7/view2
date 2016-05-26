@@ -853,7 +853,7 @@ ul#nav li.current a:after {
 /* more link */
 #hero #more {
   position: absolute;
-  left: 0%;
+  left: -5%;
   bottom: -28px;
   margin-left: 240px;
 }
@@ -900,7 +900,7 @@ ul#nav li.current a:after {
 /* more2 link */
 #hero #more2 {
   position: absolute;
-  left: 11%;
+  left: 5%;
   bottom: -28px;
   margin-left: 240px;
 }
@@ -936,6 +936,7 @@ ul#nav li.current a:after {
   right: -5px;
 }
 
+
 /* media queries - #more */
 @media only screen and (max-width:1024px) {
   #hero #more {
@@ -947,9 +948,9 @@ ul#nav li.current a:after {
 /* more3 link */
 #more3 {
   position: absolute;
-  left: 0%;
-  bottom: -55px;
-  margin-left: 20px;
+  left: -14%;
+  bottom: -54px;
+  margin-left: 240px;
 }
 
 #more3 a {
@@ -978,6 +979,45 @@ ul#nav li.current a:after {
 }
 
 #more3 a i {
+  margin-left: 6px;
+  position: relative;
+  right: -5px;
+}
+
+/* more4 link */
+#more4 {
+  position: absolute;
+  left: 11.3%;
+  bottom: -28px;
+  margin-left: 240px;
+}
+
+#more4 a {
+  font: 12px/54px "raleway-heavy", sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  display: block;
+  height: 54px;
+  width: 200px;
+  border-radius: 3px;
+  background: #48c22d;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  color: #000000;
+  -moz-transition: all 0.4s ease-on-out;
+  -o-transition: all 0.4s ease-on-out;
+  -webkit-transition: all 0.4s ease-on-out;
+  -ms-transition: all 0.4s ease-on-out;
+  transition: all 0.4s ease-on-out;
+}
+
+#more4 a:hover {
+  background: #2f9916;
+  color: #000000;
+}
+
+#more4 a i {
   margin-left: 6px;
   position: relative;
   right: -5px;
